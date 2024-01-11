@@ -6,9 +6,9 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentInput, setCurrentInput] = useState("");
-  const [currentData, setCurrentData] = useState({});
-  const [currentCity, setCurrentCity] = useState({});
-  const [dataFromCoordinatesAPI, setDataFromCoordinatesAPI] = useState({});
+  const [currentData, setCurrentData] = useState(null);
+  const [currentCity, setCurrentCity] = useState(null);
+  const [dataFromCoordinatesAPI, setDataFromCoordinatesAPI] = useState(null);
   const providerValue = {
     windowWidth,
     currentInput,

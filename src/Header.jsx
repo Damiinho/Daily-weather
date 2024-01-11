@@ -5,7 +5,9 @@ const Header = () => {
     <header>
       <span>Daily</span>
       <span>weather</span>
-      <CloudIcon style={{ color: "#aaa" }} fontSize="large" />
+      <div className="header-logo">
+        <CloudIcon style={{ color: "#aaa" }} fontSize="large" />
+      </div>
     </header>
   );
 };
