@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import "./App.scss";
 import { AppContext } from "./contexts/AppContext";
+
 import { Button, TextField } from "@mui/material";
 import Header from "./Header";
+import SubdirectoryArrowLeftIcon from "@mui/icons-material/SubdirectoryArrowLeft";
 
 function App() {
   const {
@@ -68,11 +70,28 @@ function App() {
         onChange={(e) => handleChangeInput(e)}
         onKeyDown={handleKeyDown}
         value={currentInput}
-        id="outlined-basic"
         label="City"
-        variant="outlined"
+        InputLabelProps={{ style: { color: "rgba(255, 255, 255, 0.47)" } }}
+        inputProps={{ style: { color: "rgba(255, 255, 255, 0.47)" } }}
+        color="secondary"
+        variant="filled"
+        sx={{
+          "& .MuiInputBase-input": {
+            backgroundColor: "#333333", // Kolor tła w polu tekstowym
+          },
+        }}
       />
-      <Button onClick={handleEnter}>enter</Button>
+      <Button
+        size="small"
+        variant=""
+        color="secondary"
+        onClick={handleEnter}
+        style={{
+          color: "#6c6b81",
+        }}
+      >
+        <SubdirectoryArrowLeftIcon fontSize="large" />
+      </Button>
     </>
   );
 }
