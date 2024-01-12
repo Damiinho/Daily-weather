@@ -3,7 +3,9 @@ import CloudIcon from "@mui/icons-material/Cloud";
 const Header = () => {
   return (
     <header>
-      <span>Daily</span>
+      <span>
+        <span>D</span>ai<span>l</span>y
+      </span>
       <span>weather</span>
       <div className="header-logo">
         <CloudIcon style={{ color: "#aaa" }} fontSize="large" />

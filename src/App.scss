@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 #root {
-  margin: 0 auto;
+  width: 100%;
   padding: 10px;
 }
 
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: "Kanit", sans-serif;
   text-transform: uppercase;
   font-size: 40px;
-  span:first-of-type {
+  > span:first-of-type {
     font-weight: 100;
+    span {
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
-  span:nth-of-type(2) {
+  > span:nth-of-type(2) {
     color: #6b6b94;
   }
   .header-logo {
@@ -98,5 +102,31 @@ header {
       font-style: italic;
       color: rgba(255, 255, 255, 0.47);
     }
+  }
+  &-details {
+    margin-top: 20px;
+    &__item {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 20px;
+      &-title {
+        width: 100px;
+        text-transform: uppercase;
+        font-weight: 100;
+        font-style: italic;
+      }
+      &-info {
+        width: 100px;
+        text-align: right;
+        font-weight: 200;
+        font-size: 25px;
+      }
+    }
+  }
+  &-more {
+    margin-top: 20px;
+    display: flex;
+    place-content: center;
   }
 }

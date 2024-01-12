@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "./contexts/AppContext";
+import ContentBox from "./ContentBox";
 
 const Content = () => {
   const {
@@ -69,46 +70,13 @@ const Content = () => {
     );
   };
 
-  const ContentBox = () => {
-    if (currentCity) {
-      if (currentData?.data?.cod === 200) {
-        return (
-          <div className="content">
-            <div className="content-title">
-              <div className="content-title__city">
-                {currentCity?.foundCity?.name}
-              </div>
-              <div className="content-title__state">
-                {currentCity?.foundCity?.state} (
-                {currentCity?.foundCity?.country})
-              </div>{" "}
-            </div>
-            <div className="content-data">
-              <div className="content-data__temp">
-                <div className="content-data__temp__description">temp</div>
-                <div className="content-data__temp__info">
-                  {currentData.data.main.temp}°C
-                </div>
-              </div>
-              <div className="content-data__icon">
-                <img
-                  src={`https://openweathermap.org/img/wn/${currentData.data.weather[0].icon}@2x.png`}
-                  alt="weather"
-                ></img>
-                <div className="content-data__icon-description">
-                  {currentData.data.weather[0].main}
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      } else if (currentData && dataFromCoordinatesAPI?.city?.name) {
-        return <DidYouMean />;
-      } else return <Empty />;
+  if (currentCity) {
+    if (currentData?.data?.cod === 200) {
+      return <ContentBox />;
+    } else if (currentData && dataFromCoordinatesAPI?.city?.name) {
+      return <DidYouMean />;
     } else return <Empty />;
-  };
-
-  return <ContentBox />;
+  } else return <Empty />;
 };
 
 export default Content;
