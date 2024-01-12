@@ -9,6 +9,7 @@ export const AppProvider = ({ children }) => {
   const [currentData, setCurrentData] = useState(null);
   const [currentCity, setCurrentCity] = useState(null);
   const [dataFromCoordinatesAPI, setDataFromCoordinatesAPI] = useState(null);
+  const [activeExpandMore, setActiveExpandMore] = useState(false);
   const providerValue = {
     windowWidth,
     currentInput,
@@ -19,6 +20,8 @@ export const AppProvider = ({ children }) => {
     setCurrentCity,
     dataFromCoordinatesAPI,
     setDataFromCoordinatesAPI,
+    activeExpandMore,
+    setActiveExpandMore,
   };
 
   useEffect(() => {

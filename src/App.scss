@@ -129,4 +129,99 @@ header {
     display: flex;
     place-content: center;
   }
+  &-byhours {
+    text-transform: uppercase;
+    &__item {
+      display: flex;
+      border-bottom: 1px solid #6b6b94;
+
+      &-daybox {
+        width: 80px;
+        .day {
+          display: flex;
+
+          .name {
+            width: 35px;
+            font-weight: 100;
+            font-style: italic;
+            font-size: 18px;
+          }
+          .month {
+            width: 55px;
+            display: flex;
+            gap: 3px;
+            font-size: 18px;
+            margin: 0 auto;
+            span:first-of-type {
+              color: #6b6b94;
+            }
+            span:nth-of-type(2) {
+              font-weight: 500;
+            }
+          }
+        }
+        .hours {
+          display: flex;
+          justify-content: space-between;
+          .hour {
+            // width: 68px;
+            margin: 0 auto;
+            font-weight: 100;
+            transform: scaleX(1.5);
+          }
+          .ampm {
+            width: 22px;
+            color: #6b6b94;
+          }
+        }
+      }
+      &-weather {
+        margin-left: 5px;
+        display: flex;
+        place-content: center;
+        img {
+          height: 45px;
+        }
+      }
+      &-temp {
+        display: flex;
+        width: 60px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        div:first-of-type {
+        }
+        div:nth-of-type(2) {
+          font-weight: 100;
+          font-style: italic;
+        }
+      }
+      &-windbox {
+        text-transform: none;
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        div {
+          span {
+            font-weight: 100;
+          }
+        }
+      }
+      &-other {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+    &__item:last-of-type {
+      border-bottom: none;
+    }
+  }
 }

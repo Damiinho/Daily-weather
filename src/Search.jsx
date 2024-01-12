@@ -73,6 +73,7 @@ const Search = () => {
         inputProps={{ style: { color: "rgba(255, 255, 255, 0.47)" } }}
         color="secondary"
         variant="filled"
+        size="small"
         sx={{
           "& .MuiInputBase-input": {
             backgroundColor: "#333333", // Kolor tła w polu tekstowym

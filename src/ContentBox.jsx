@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AppContext } from "./contexts/AppContext";
 import { Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandMore from "./ExpandMore";
 
 const ContentBox = () => {
-  const { currentCity, currentData } = useContext(AppContext);
+  const { currentCity, currentData, activeExpandMore, setActiveExpandMore } =
+    useContext(AppContext);
 
   const sunrise = new Date(currentData.data.sys.sunrise * 1000);
   const sunset = new Date(currentData.data.sys.sunset * 1000);
@@ -17,7 +19,9 @@ const ContentBox = () => {
     sunset.getMinutes() < 10 ? `0${sunset.getMinutes()}` : sunset.getMinutes()
   }`;
 
-  return (
+  return activeExpandMore ? (
+    <ExpandMore />
+  ) : (
     <div className="content">
       <div className="content-title">
         <div className="content-title__city">
@@ -85,7 +89,11 @@ const ContentBox = () => {
         </div>
       </div>
       <div className="content-more">
-        <Button size="large" style={{ color: "#6c6b93" }}>
+        <Button
+          onClick={() => setActiveExpandMore(true)}
+          size="large"
+          style={{ color: "#6c6b93" }}
+        >
           Expand more (24h) <ExpandMoreIcon />
         </Button>
       </div>
