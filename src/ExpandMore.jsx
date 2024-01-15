@@ -13,9 +13,23 @@ const ExpandMore = () => {
         {dataFromCoordinatesAPI.list.slice(0, 9).map((item) => {
           const time = new Date(item.dt * 1000);
 
-          const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+          const daysOfWeek =
+            windowWidth < 700
+              ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+              : [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ];
           const dayName = daysOfWeek[time.getDay()];
-          const monthName = time.toLocaleString("en-us", { month: "short" });
+          const monthName =
+            windowWidth < 700
+              ? time.toLocaleString("en-us", { month: "short" })
+              : time.toLocaleString("en-us", { month: "long" });
           const dayOfMonth = time.getDate();
           let hours = time.getHours();
           const minutes = time.getMinutes();
@@ -46,22 +60,28 @@ const ExpandMore = () => {
               </div>
               <div className="content-byhours__item-temp">
                 <div>
-                  <span>{windowWidth > 500 && "temp"}</span>
+                  <span>{windowWidth > 499 && "temp"}</span>
                   <span>{item.main.temp.toFixed(1)}°C</span>
                 </div>
                 <div>
-                  <span> {windowWidth > 500 && "real feel"}</span>
+                  <span> {windowWidth > 499 && "real feel"}</span>
                   <span>{item.main.feels_like.toFixed(1)}°C</span>
                 </div>
               </div>
               <div className="content-byhours__item-windbox">
                 <div>
-                  {item.wind.speed}
-                  <span>m/s</span>
+                  {windowWidth > 599 && <div>wind</div>}
+                  <div>
+                    {item.wind.speed}
+                    <span>m/s</span>
+                  </div>
                 </div>
                 <div>
-                  {item.main.pressure}
-                  <span>hPa</span>
+                  {windowWidth > 599 && <div>pressure</div>}
+                  <div>
+                    {item.main.pressure}
+                    <span>hPa</span>
+                  </div>
                 </div>
               </div>
               <div className="content-byhours__item-windarrow">

@@ -37,6 +37,8 @@ header {
   font-family: "Kanit", sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &-empty {
     font-size: 18px;
     font-style: italic;
@@ -106,10 +108,14 @@ header {
     }
   }
   &-details {
-    margin-top: 20px;
+    margin: 20px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+
     &__item {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       font-size: 20px;
       &-title {
@@ -119,10 +125,15 @@ header {
         font-style: italic;
       }
       &-info {
-        width: 100px;
         text-align: right;
         font-weight: 200;
         font-size: 25px;
+        display: flex;
+        place-items: center;
+        gap: 10px;
+        img {
+          width: 40px;
+        }
       }
     }
   }
@@ -177,6 +188,37 @@ header {
             color: #6b6b94;
           }
         }
+        @media screen and (min-width: 700px) {
+          width: 170px;
+          display: flex;
+          .day {
+            width: 120px;
+            flex-direction: column;
+            place-content: center;
+            .name {
+              width: auto;
+              text-align: left;
+            }
+            .month {
+              width: auto;
+              margin: 0;
+            }
+          }
+          .hours {
+            width: 50px;
+            flex-direction: column;
+            place-content: center;
+            .hour {
+              font-size: 22px;
+              transform: scaleX(1);
+            }
+            .ampm {
+              font-size: 14px;
+              margin: 0 auto;
+              transform: scaleX(1.6);
+            }
+          }
+        }
       }
       &-weather {
         margin-left: 5px;
@@ -184,6 +226,9 @@ header {
         place-content: center;
         img {
           height: 45px;
+          @media screen and (min-width: 700px) {
+            height: 60px;
+          }
         }
       }
       &-temp {
@@ -215,10 +260,25 @@ header {
         width: 60px;
         display: flex;
         flex-direction: column;
-        place-items: center;
-        div {
+        place-content: center;
+        > div {
+          width: 100%;
+          display: flex;
+          justify-content: center;
           span {
             font-weight: 100;
+          }
+        }
+
+        @media screen and (min-width: 600px) {
+          width: 150px;
+          > div {
+            justify-content: space-between;
+            > div:first-of-type {
+              font-weight: 100;
+              text-transform: uppercase;
+              font-style: italic;
+            }
           }
         }
       }
@@ -234,6 +294,7 @@ header {
         }
       }
       &-other {
+        width: 100px;
         font-weight: 100;
         display: flex;
         flex-direction: column;

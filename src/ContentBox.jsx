@@ -3,6 +3,7 @@ import { AppContext } from "./contexts/AppContext";
 import { Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandMore from "./ExpandMore";
+import ArrowIMG from "./img/windarrow.png";
 
 const ContentBox = () => {
   const { currentCity, currentData, activeExpandMore, setActiveExpandMore } =
@@ -70,6 +71,11 @@ const ContentBox = () => {
         <div className="content-details__item">
           <div className="content-details__item-title">wind</div>
           <div className="content-details__item-info">
+            <img
+              style={{ transform: `rotate(${currentData?.data?.wind.deg}deg)` }}
+              src={ArrowIMG}
+              alt="arrow"
+            />
             {currentData?.data?.wind?.speed}m/s
           </div>
         </div>
