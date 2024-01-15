@@ -65,7 +65,7 @@ const Content = () => {
   const Empty = () => {
     return (
       <div className="content">
-        <div className="content-empty">Search your city...</div>
+        <div className="content-empty">Find your city...</div>
       </div>
     );
   };

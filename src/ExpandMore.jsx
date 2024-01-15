@@ -5,7 +5,7 @@ import { AppContext } from "./contexts/AppContext";
 import ArrowIMG from "./img/windarrow.png";
 
 const ExpandMore = () => {
-  const { setActiveExpandMore, dataFromCoordinatesAPI } =
+  const { setActiveExpandMore, dataFromCoordinatesAPI, windowWidth } =
     useContext(AppContext);
   return (
     <div className="content">
@@ -45,8 +45,14 @@ const ExpandMore = () => {
                 />
               </div>
               <div className="content-byhours__item-temp">
-                <div>{item.main.temp.toFixed(1)}°C</div>
-                <div>{item.main.feels_like.toFixed(1)}°C</div>
+                <div>
+                  <span>{windowWidth > 500 && "temp"}</span>
+                  <span>{item.main.temp.toFixed(1)}°C</span>
+                </div>
+                <div>
+                  <span> {windowWidth > 500 && "real feel"}</span>
+                  <span>{item.main.feels_like.toFixed(1)}°C</span>
+                </div>
               </div>
               <div className="content-byhours__item-windbox">
                 <div>
@@ -58,13 +64,31 @@ const ExpandMore = () => {
                   <span>hPa</span>
                 </div>
               </div>
-              <div className="content-byhours__item-other">
+              <div className="content-byhours__item-windarrow">
                 <img
                   style={{ transform: `rotate(${item.wind.deg}deg)` }}
                   src={ArrowIMG}
                   alt="arrow"
                 />
               </div>
+              {windowWidth > 420 && (
+                <div className="content-byhours__item-other">
+                  <div>
+                    <div>humidity</div>
+                    <div>
+                      {item.main.humidity}
+                      <span>%</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div>clouds</div>
+                    <div>
+                      {item.clouds.all}
+                      <span>%</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
