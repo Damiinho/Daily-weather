@@ -8,7 +8,7 @@ const ExpandMore = () => {
   const { setActiveExpandMore, dataFromCoordinatesAPI, windowWidth } =
     useContext(AppContext);
   return (
-    <div className="content">
+    <>
       <div className="content-byhours">
         {dataFromCoordinatesAPI.list.slice(0, 9).map((item) => {
           const time = new Date(item.dt * 1000);
@@ -122,7 +122,7 @@ const ExpandMore = () => {
           Less info <ExpandLessIcon />
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

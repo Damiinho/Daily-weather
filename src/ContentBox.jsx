@@ -21,9 +21,11 @@ const ContentBox = () => {
   }`;
 
   return activeExpandMore ? (
-    <ExpandMore />
+    <div className="content">
+      <ExpandMore />
+    </div>
   ) : (
-    <div className="content default">
+    <div className="content">
       <div className="content-title">
         <div className="content-title__city">
           {currentCity?.foundCity?.name}
